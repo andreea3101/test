@@ -101,8 +101,8 @@ class AISBinaryEncoder:
         if heading >= AIS_MAX_VALUES['heading']:
             return AISBinaryEncoder._encode_bits(511, 9)  # Not available
         
-        heading = max(0, min(359, heading))
-        return AISBinaryEncoder._encode_bits(heading, 9)
+        heading = max(0, min(359, heading)) # heading could still be float here if input was float
+        return AISBinaryEncoder._encode_bits(int(round(heading)), 9)
     
     @staticmethod
     def _encode_rot(rot: int) -> str:
@@ -135,7 +135,7 @@ class AISBinaryEncoder:
         binary += AISBinaryEncoder._encode_bits(nav.nav_status.value, 4)  # Navigation status
         binary += AISBinaryEncoder._encode_rot(nav.rot)  # Rate of turn
         binary += AISBinaryEncoder._encode_sog(nav.sog)  # Speed over ground
-        binary += AISBinaryEncoder._encode_bits(nav.position_accuracy, 1)  # Position accuracy
+        binary += AISBinaryEncoder._encode_bits(int(nav.position_accuracy), 1)  # Position accuracy (ensure int)
         binary += AISBinaryEncoder._encode_longitude(nav.position.longitude)  # Longitude
         binary += AISBinaryEncoder._encode_latitude(nav.position.latitude)  # Latitude
         binary += AISBinaryEncoder._encode_cog(nav.cog)  # Course over ground
@@ -143,7 +143,7 @@ class AISBinaryEncoder:
         binary += AISBinaryEncoder._encode_bits(nav.timestamp, 6)  # Time stamp
         binary += AISBinaryEncoder._encode_bits(0, 2)  # Maneuver indicator
         binary += AISBinaryEncoder._encode_bits(0, 3)  # Spare
-        binary += AISBinaryEncoder._encode_bits(nav.raim, 1)  # RAIM
+        binary += AISBinaryEncoder._encode_bits(int(nav.raim), 1)  # RAIM flag (ensure int)
         binary += AISBinaryEncoder._encode_bits(nav.radio_status, 19)  # Radio status
         
         # Input data for trace logging

@@ -11,11 +11,15 @@ from simulator.core.time_manager import TimeManager
 from simulator.core.ais_scheduler import AISMessageScheduler
 from simulator.generators.vessel import EnhancedVesselGenerator
 from simulator.outputs.base import OutputHandler
-from nmea_lib.sentences.gga import GGASentence
+from nmea_lib.sentences.gga import GGASentence, GpsFixQuality
 from nmea_lib.sentences.rmc import RMCSentence
 from nmea_lib.sentences.aivdm import AISMessageGenerator
 from nmea_lib.types.vessel import VesselState, BaseStationData, AidToNavigationData
-from nmea_lib.types import Position, NMEATime, NMEADate
+from nmea_lib.types import (
+    Position, NMEATime, NMEADate,
+    Distance, DistanceUnit, Speed, SpeedUnit, Bearing, BearingType
+)
+from nmea_lib.types.enums import DataStatus, ModeIndicator
 
 
 @dataclass
@@ -48,7 +52,9 @@ class EnhancedSimulationEngine:
     def __init__(self, config: SimulationConfig):
         """Initialize enhanced simulation engine."""
         self.config = config
-        self.time_manager = TimeManager(config.time_factor)
+        # Correctly pass time_factor as a keyword argument.
+        # start_time will default to datetime.utcnow() in TimeManager.
+        self.time_manager = TimeManager(time_factor=config.time_factor)
         self.ais_scheduler = AISMessageScheduler()
         self.ais_generator = AISMessageGenerator()
         
@@ -94,7 +100,18 @@ class EnhancedSimulationEngine:
         
         # Add to AIS scheduler
         if self.config.enable_ais:
-            self.ais_scheduler.add_vessel(vessel_state)
+            # Pass the current simulation time as the start time for scheduling
+            # This ensures consistency if the simulation starts paused or with a different time factor.
+            # However, time_manager might not be "started" or have a meaningful current_time if this is called before engine.start()
+            # For now, let's assume add_vessel is called after engine is somewhat initialized.
+            # A safer approach might be to pass it when the engine starts, or defer scheduling setup.
+            # For the current structure, if add_vessel is called before start(), time_manager gives real now().
+            # If called after start(), it gives sim time.
+            # The AIS scheduler's add_vessel takes an optional start_time. If not provided, it uses datetime.now().
+            # Let's try to provide it, assuming add_vessel is called when the engine is being configured but before run.
+            # This means time_manager.get_current_time() will be effectively datetime.now() if engine not yet started.
+            current_sim_time_for_scheduler = self.time_manager.get_current_time()
+            self.ais_scheduler.add_vessel(vessel_state, start_time=current_sim_time_for_scheduler)
         
         self.logger.info(f"Added vessel {mmsi} ({vessel_state.static_data.vessel_name})")
         return mmsi
@@ -365,13 +382,16 @@ class EnhancedSimulationEngine:
         
         # Create GGA sentence
         gga = GGASentence()
-        gga.set_time(NMEATime.from_datetime(current_time))
+        # Ensure NMEATime and NMEADate objects are converted to string for setters if setters expect strings
+        # Based on gga.py, set_time expects a string.
+        gga.set_time(NMEATime.from_datetime(current_time).to_nmea())
         gga.set_position(nav.position.latitude, nav.position.longitude)
-        gga.set_fix_quality(1)  # GPS fix
-        gga.set_satellites_used(8)
-        gga.set_hdop(1.2)
-        gga.set_altitude(0.0)
-        gga.set_geoid_height(19.6)
+        gga.set_fix_quality(GpsFixQuality.GPS)
+        gga.set_satellites_in_use(8)
+        gga.set_horizontal_dilution(1.2)
+        # Based on gga.py, set_altitude expects a Distance object.
+        gga.set_altitude(Distance(0.0, DistanceUnit.METERS))
+        gga.set_geoidal_height(Distance(19.6, DistanceUnit.METERS))
         
         return gga
     
@@ -381,13 +401,18 @@ class EnhancedSimulationEngine:
         
         # Create RMC sentence
         rmc = RMCSentence()
-        rmc.set_time(NMEATime.from_datetime(current_time))
-        rmc.set_status('A')  # Active
+        # Based on rmc.py, set_time and set_date expect strings.
+        rmc.set_time(NMEATime.from_datetime(current_time).to_nmea())
+        rmc.set_status(DataStatus.ACTIVE)
         rmc.set_position(nav.position.latitude, nav.position.longitude)
-        rmc.set_speed(nav.sog)
-        rmc.set_course(nav.cog)
-        rmc.set_date(NMEADate.from_datetime(current_time))
-        rmc.set_magnetic_variation(0.0, 'E')
+        # Based on rmc.py, set_speed expects Speed object, set_course expects Bearing object.
+        rmc.set_speed(Speed(nav.sog, SpeedUnit.KNOTS))
+        rmc.set_course(Bearing(nav.cog, BearingType.TRUE))
+        rmc.set_date(NMEADate.from_date(current_time.date()).to_nmea())
+        # Based on rmc.py, set_magnetic_variation expects a single float.
+        rmc.set_magnetic_variation(0.0) # Assuming East, so positive.
+        # Mode indicator is often A for autonomous.
+        rmc.set_mode_indicator(ModeIndicator.AUTONOMOUS)
         
         return rmc
     
