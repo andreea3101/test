@@ -1,0 +1,208 @@
+{
+  "generation_info": {
+    "timestamp": "2025-07-07T10:33:50.386580",
+    "vessel_count": 1,
+    "total_messages": 10
+  },
+  "vessels_initial_config_summary": [
+    {
+      "mmsi": 367001234,
+      "name": "DYNAMIC EVER",
+      "call_sign": "CALL1234",
+      "ship_type": 70,
+      "vessel_class": "A"
+    }
+  ],
+  "messages": [
+    {
+      "timestamp": "2025-07-07T10:33:54.384783",
+      "message_type": "GPS",
+      "sentence": "$GPGGA,103354.384,3748.0056,N,12223.9788,W,1,8,1.2,0.0,M,19.6,M,,*71",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.80009356236712,
+          "longitude": -122.39964721864159
+        },
+        "sog": 11.311150293433483,
+        "cog": 75.0,
+        "heading": 75,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:33:54.384783",
+      "message_type": "GPS",
+      "sentence": "$GPRMC,103354.384,A,3748.0056,N,12223.9788,W,11.3,75.0,070725,0.0,E,A*1B",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.80009356236712,
+          "longitude": -122.39964721864159
+        },
+        "sog": 11.311150293433483,
+        "cog": 75.0,
+        "heading": 75,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:33:59.384783",
+      "message_type": "GPS",
+      "sentence": "$GPGGA,103359.384,3748.0112,N,12223.9581,W,1,8,1.2,0.0,M,19.6,M,,*76",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.800187328702464,
+          "longitude": -122.39930143691258
+        },
+        "sog": 11.917591074743,
+        "cog": 75.0,
+        "heading": 75,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:33:59.384783",
+      "message_type": "GPS",
+      "sentence": "$GPRMC,103359.384,A,3748.0112,N,12223.9581,W,11.9,75.0,070725,0.0,E,A*16",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.800187328702464,
+          "longitude": -122.39930143691258
+        },
+        "sog": 11.917591074743,
+        "cog": 75.0,
+        "heading": 75,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:33:59.384783",
+      "message_type": "AIS",
+      "sentence": "!AIVDM,1,1,,A,15MonTP01gG?\\e6EXB<2kRGf0000,0*32",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": 1,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.800187328702464,
+          "longitude": -122.39930143691258
+        },
+        "sog": 11.917591074743,
+        "cog": 75.0,
+        "heading": 75,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:34:04.384783",
+      "message_type": "GPS",
+      "sentence": "$GPGGA,103404.384,3748.0142,N,12223.9374,W,1,8,1.2,0.0,M,19.6,M,,*70",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.80023660820237,
+          "longitude": -122.39895611466383
+        },
+        "sog": 12.832490197158053,
+        "cog": 75.0,
+        "heading": 75,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:34:04.384783",
+      "message_type": "GPS",
+      "sentence": "$GPRMC,103404.384,A,3748.0142,N,12223.9374,W,12.8,75.0,070725,0.0,E,A*12",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.80023660820237,
+          "longitude": -122.39895611466383
+        },
+        "sog": 12.832490197158053,
+        "cog": 75.0,
+        "heading": 75,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:34:09.384783",
+      "message_type": "GPS",
+      "sentence": "$GPGGA,103409.384,3748.0186,N,12223.9136,W,1,8,1.2,0.0,M,19.6,M,,*71",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.800310035002674,
+          "longitude": -122.3985598357328
+        },
+        "sog": 12.787634741751914,
+        "cog": 75.0,
+        "heading": 75,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:34:09.384783",
+      "message_type": "GPS",
+      "sentence": "$GPRMC,103409.384,A,3748.0186,N,12223.9136,W,12.8,75.0,070725,0.0,E,A*13",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.800310035002674,
+          "longitude": -122.3985598357328
+        },
+        "sog": 12.787634741751914,
+        "cog": 75.0,
+        "heading": 75,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:34:09.384783",
+      "message_type": "AIS",
+      "sentence": "!AIVDM,1,1,,A,15MonTP020G?]30EXBNRkRFB0000,0*00",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": 1,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.800310035002674,
+          "longitude": -122.3985598357328
+        },
+        "sog": 12.787634741751914,
+        "cog": 75.0,
+        "heading": 75,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    }
+  ]
+}

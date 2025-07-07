@@ -1,0 +1,399 @@
+{
+  "generation_info": {
+    "timestamp": "2025-07-07T10:35:06.566545",
+    "vessel_count": 2,
+    "total_messages": 20
+  },
+  "vessels_initial_config_summary": [
+    {
+      "mmsi": 367001234,
+      "name": "DYNAMIC EVER"
+    },
+    {
+      "mmsi": 367002345,
+      "name": "DYNAMIC PACIFIC"
+    }
+  ],
+  "messages": [
+    {
+      "timestamp": "2025-07-07T10:35:10.560093",
+      "message_type": "GPS",
+      "sentence": "$GPGGA,103510.560,3748.0013,N,12223.9720,W,1,8,1.2,0.0,M,19.6,M,,*78",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.800022491778286,
+          "longitude": -122.39953291154558
+        },
+        "sog": 14.811150293433483,
+        "cog": 90.0,
+        "heading": 90,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:10.560093",
+      "message_type": "GPS",
+      "sentence": "$GPRMC,103510.560,A,3748.0013,N,12223.9720,W,14.8,90.0,070725,0.0,E,A*17",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.800022491778286,
+          "longitude": -122.39953291154558
+        },
+        "sog": 14.811150293433483,
+        "cog": 90.0,
+        "heading": 90,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:10.560093",
+      "message_type": "GPS",
+      "sentence": "$GPGGA,103510.560,3744.9901,N,12226.9990,W,1,8,1.2,0.0,M,19.6,M,,*77",
+      "vessel_mmsi": 367002345,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC PACIFIC",
+        "position": {
+          "latitude": 37.749835800188734,
+          "longitude": -122.44998289828426
+        },
+        "sog": 7.511150293433484,
+        "cog": 180.0,
+        "heading": 180,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:10.560093",
+      "message_type": "GPS",
+      "sentence": "$GPRMC,103510.560,A,3744.9901,N,12226.9990,W,7.5,180.0,070725,0.0,E,A*17",
+      "vessel_mmsi": 367002345,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC PACIFIC",
+        "position": {
+          "latitude": 37.749835800188734,
+          "longitude": -122.44998289828426
+        },
+        "sog": 7.511150293433484,
+        "cog": 180.0,
+        "heading": 180,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:15.560093",
+      "message_type": "GPS",
+      "sentence": "$GPGGA,103515.560,3748.0027,N,12223.9444,W,1,8,1.2,0.0,M,19.6,M,,*7B",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.80004546162191,
+          "longitude": -122.39907286867258
+        },
+        "sog": 15.417591074743,
+        "cog": 90.0,
+        "heading": 90,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:15.560093",
+      "message_type": "GPS",
+      "sentence": "$GPRMC,103515.560,A,3748.0027,N,12223.9444,W,15.4,90.0,070725,0.0,E,A*19",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.80004546162191,
+          "longitude": -122.39907286867258
+        },
+        "sog": 15.417591074743,
+        "cog": 90.0,
+        "heading": 90,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:15.560093",
+      "message_type": "GPS",
+      "sentence": "$GPGGA,103515.560,3744.9804,N,12226.9983,W,1,8,1.2,0.0,M,19.6,M,,*74",
+      "vessel_mmsi": 367002345,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC PACIFIC",
+        "position": {
+          "latitude": 37.74967313747051,
+          "longitude": -122.44997150201728
+        },
+        "sog": 8.117591074743,
+        "cog": 180.0,
+        "heading": 180,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:15.560093",
+      "message_type": "GPS",
+      "sentence": "$GPRMC,103515.560,A,3744.9804,N,12226.9983,W,8.1,180.0,070725,0.0,E,A*1F",
+      "vessel_mmsi": 367002345,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC PACIFIC",
+        "position": {
+          "latitude": 37.74967313747051,
+          "longitude": -122.44997150201728
+        },
+        "sog": 8.117591074743,
+        "cog": 180.0,
+        "heading": 180,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:15.560093",
+      "message_type": "AIS",
+      "sentence": "!AIVDM,1,1,,A,15MonTP02JG?\\iHEXAfcQ2dN0000,0*37",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": 1,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.80004546162191,
+          "longitude": -122.39907286867258
+        },
+        "sog": 15.417591074743,
+        "cog": 90.0,
+        "heading": 90,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:15.560093",
+      "message_type": "AIS",
+      "sentence": "!AIVDM,1,1,,A,15N02j@01AG?Mo2EVKc725XN0000,0*71",
+      "vessel_mmsi": 367002345,
+      "ais_message_type": 1,
+      "vessel_data": {
+        "name": "DYNAMIC PACIFIC",
+        "position": {
+          "latitude": 37.74967313747051,
+          "longitude": -122.44997150201728
+        },
+        "sog": 8.117591074743,
+        "cog": 180.0,
+        "heading": 180,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:20.560093",
+      "message_type": "GPS",
+      "sentence": "$GPGGA,103520.560,3748.0011,N,12223.9167,W,1,8,1.2,0.0,M,19.6,M,,*7C",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.80001824111356,
+          "longitude": -122.39861233538905
+        },
+        "sog": 16.33249019715805,
+        "cog": 90.0,
+        "heading": 90,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:20.560093",
+      "message_type": "GPS",
+      "sentence": "$GPRMC,103520.560,A,3748.0011,N,12223.9167,W,16.3,90.0,070725,0.0,E,A*1A",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.80001824111356,
+          "longitude": -122.39861233538905
+        },
+        "sog": 16.33249019715805,
+        "cog": 90.0,
+        "heading": 90,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:20.560093",
+      "message_type": "GPS",
+      "sentence": "$GPGGA,103520.560,3744.9663,N,12226.9993,W,1,8,1.2,0.0,M,19.6,M,,*7C",
+      "vessel_mmsi": 367002345,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC PACIFIC",
+        "position": {
+          "latitude": 37.7494382477495,
+          "longitude": -122.44998750439468
+        },
+        "sog": 9.032490197158054,
+        "cog": 180.0,
+        "heading": 180,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:20.560093",
+      "message_type": "GPS",
+      "sentence": "$GPRMC,103520.560,A,3744.9663,N,12226.9993,W,9.0,180.0,070725,0.0,E,A*17",
+      "vessel_mmsi": 367002345,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC PACIFIC",
+        "position": {
+          "latitude": 37.7494382477495,
+          "longitude": -122.44998750439468
+        },
+        "sog": 9.032490197158054,
+        "cog": 180.0,
+        "heading": 180,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:25.560093",
+      "message_type": "GPS",
+      "sentence": "$GPGGA,103525.560,3748.0010,N,12223.8861,W,1,8,1.2,0.0,M,19.6,M,,*76",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.800016202501716,
+          "longitude": -122.39810101818048
+        },
+        "sog": 16.287634741751912,
+        "cog": 90.0,
+        "heading": 90,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:25.560093",
+      "message_type": "GPS",
+      "sentence": "$GPRMC,103525.560,A,3748.0010,N,12223.8861,W,16.3,90.0,070725,0.0,E,A*10",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.800016202501716,
+          "longitude": -122.39810101818048
+        },
+        "sog": 16.287634741751912,
+        "cog": 90.0,
+        "heading": 90,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:25.560093",
+      "message_type": "GPS",
+      "sentence": "$GPGGA,103525.560,3744.9540,N,12226.9969,W,1,8,1.2,0.0,M,19.6,M,,*7E",
+      "vessel_mmsi": 367002345,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC PACIFIC",
+        "position": {
+          "latitude": 37.74923253728921,
+          "longitude": -122.44994766378274
+        },
+        "sog": 8.987634741751915,
+        "cog": 180.0,
+        "heading": 180,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:25.560093",
+      "message_type": "GPS",
+      "sentence": "$GPRMC,103525.560,A,3744.9540,N,12226.9969,W,9.0,180.0,070725,0.0,E,A*15",
+      "vessel_mmsi": 367002345,
+      "ais_message_type": null,
+      "vessel_data": {
+        "name": "DYNAMIC PACIFIC",
+        "position": {
+          "latitude": 37.74923253728921,
+          "longitude": -122.44994766378274
+        },
+        "sog": 8.987634741751915,
+        "cog": 180.0,
+        "heading": 180,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:25.560093",
+      "message_type": "AIS",
+      "sentence": "!AIVDM,1,1,,A,15MonTP02SG?];VEXAbSQ2db0000,0*7B",
+      "vessel_mmsi": 367001234,
+      "ais_message_type": 1,
+      "vessel_data": {
+        "name": "DYNAMIC EVER",
+        "position": {
+          "latitude": 37.800016202501716,
+          "longitude": -122.39810101818048
+        },
+        "sog": 16.287634741751912,
+        "cog": 90.0,
+        "heading": 90,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    },
+    {
+      "timestamp": "2025-07-07T10:35:25.560093",
+      "message_type": "AIS",
+      "sentence": "!AIVDM,1,1,,A,15N02j@01JG?MoNEVJa725Xb0000,0*29",
+      "vessel_mmsi": 367002345,
+      "ais_message_type": 1,
+      "vessel_data": {
+        "name": "DYNAMIC PACIFIC",
+        "position": {
+          "latitude": 37.74923253728921,
+          "longitude": -122.44994766378274
+        },
+        "sog": 8.987634741751915,
+        "cog": 180.0,
+        "heading": 180,
+        "rot": 0,
+        "nav_status": "UNDER_WAY_USING_ENGINE"
+      }
+    }
+  ]
+}
