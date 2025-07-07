@@ -293,7 +293,7 @@ class CompleteScenarioGenerator:
         gga.set_time(NMEATime.from_datetime(current_time))
         gga.set_position(nav.position.latitude, nav.position.longitude)
         gga.set_fix_quality(1)  # GPS fix
-        gga.set_satellites_used(8)
+        gga.set_satellites_in_use(8)
         gga.set_hdop(1.2)
         gga.set_altitude(0.0)
         gga.set_geoid_height(19.6)
