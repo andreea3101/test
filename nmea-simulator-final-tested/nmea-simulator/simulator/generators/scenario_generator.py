@@ -373,7 +373,7 @@ class CompleteScenarioGenerator:
                 file.write(f"  Base Station Report\\n")
             elif ais_msg_type == 5:
                 file.write(f"  Static and Voyage Data\\n")
-                file.write(f"  Call Sign: {vessel.static_data.call_sign}\\n")
+                file.write(f"  Call Sign: {vessel.static_data.callsign}\\n")
                 file.write(f"  Destination: {vessel.voyage_data.destination}\\n")
                 file.write(f"  Draught: {vessel.voyage_data.draught:.1f}m\\n")
             elif ais_msg_type == 18:
@@ -406,7 +406,7 @@ class CompleteScenarioGenerator:
                 {
                     'mmsi': vessel.mmsi,
                     'name': vessel.static_data.vessel_name,
-                    'call_sign': vessel.static_data.call_sign,
+                    'callsign': vessel.static_data.callsign,
                     'vessel_class': vessel.static_data.vessel_class.value,
                     'ship_type': vessel.static_data.ship_type.value,
                     'dimensions': asdict(vessel.static_data.dimensions)
