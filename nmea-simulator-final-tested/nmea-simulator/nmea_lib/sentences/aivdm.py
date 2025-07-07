@@ -227,8 +227,48 @@ class AISMessageGenerator:
         
         if message_type not in generators:
             raise ValueError(f"Unsupported AIS message type: {message_type}")
+
+        # Prepare appropriate data object based on message type
+        actual_data = vessel_data
+        if message_type == 4:
+            if isinstance(vessel_data, VesselState):
+                # Create BaseStationData from VesselState
+                actual_data = BaseStationData(
+                    mmsi=vessel_data.mmsi,
+                    position=vessel_data.navigation_data.position,
+                    timestamp=vessel_data.timestamp_sim, # or datetime.now()
+                    epfd_type=vessel_data.static_data.epfd_type,
+                    # raim and radio_status can be defaulted or taken from vessel_data if available/applicable
+                    raim=getattr(vessel_data.navigation_data, 'raim', 0),
+                    radio_status=getattr(vessel_data.navigation_data, 'radio_status', 0)
+                )
+            elif not isinstance(vessel_data, BaseStationData):
+                raise TypeError(f"AIS Type 4 requires BaseStationData, got {type(vessel_data)}")
         
-        return generators[message_type](vessel_data, channel)
+        elif message_type == 21:
+            if isinstance(vessel_data, VesselState):
+                # Attempt to create AidToNavigationData from VesselState
+                # This is a simplification; real AtoN would have specific AtoN data
+                actual_data = AidToNavigationData(
+                    mmsi=vessel_data.mmsi,
+                    name=vessel_data.static_data.vessel_name[:20] if vessel_data.static_data.vessel_name else "AtoN",
+                    position=vessel_data.navigation_data.position,
+                    aid_type=getattr(vessel_data.static_data, 'aid_type', 0), # Default if not present
+                    dimensions=vessel_data.static_data.dimensions,
+                    epfd_type=vessel_data.static_data.epfd_type,
+                    timestamp=vessel_data.navigation_data.timestamp,
+                    # Other fields can be defaulted
+                    off_position=0,
+                    regional=0,
+                    raim=getattr(vessel_data.navigation_data, 'raim', 0),
+                    virtual_aid=0,
+                    assigned=0,
+                    position_accuracy=getattr(vessel_data.navigation_data, 'position_accuracy', 0)
+                )
+            elif not isinstance(vessel_data, AidToNavigationData):
+                raise TypeError(f"AIS Type 21 requires AidToNavigationData, got {type(vessel_data)}")
+
+        return generators[message_type](actual_data, channel)
 
 
 # Utility functions for testing and validation
