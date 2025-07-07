@@ -14,7 +14,8 @@ from nmea_lib.sentences.aivdm import AISMessageGenerator
 from nmea_lib.sentences.gga import GGASentence
 from nmea_lib.sentences.rmc import RMCSentence
 from nmea_lib.types import NMEATime, NMEADate
-from nmea_lib.types.units import Distance, DistanceUnit
+from nmea_lib.types.units import Distance, DistanceUnit, Speed, SpeedUnit, Bearing, BearingType
+from nmea_lib.types.enums import DataStatus
 from simulator.generators.vessel import EnhancedVesselGenerator
 
 
@@ -303,12 +304,12 @@ class CompleteScenarioGenerator:
         # RMC sentence
         rmc = RMCSentence()
         rmc.set_time(NMEATime.from_datetime(current_time))
-        rmc.set_status('A')  # Active
+        rmc.set_status(DataStatus.ACTIVE)
         rmc.set_position(nav.position.latitude, nav.position.longitude)
-        rmc.set_speed(nav.sog)
-        rmc.set_course(nav.cog)
+        rmc.set_speed(Speed(nav.sog, SpeedUnit.KNOTS))
+        rmc.set_course(Bearing(nav.cog, BearingType.TRUE))
         rmc.set_date(NMEADate.from_datetime(current_time))
-        rmc.set_magnetic_variation(0.0, 'E')
+        rmc.set_magnetic_variation(0.0)  # East variation is positive or zero
         sentences.append(str(rmc))
         
         return sentences
