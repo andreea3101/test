@@ -14,6 +14,7 @@ from nmea_lib.sentences.aivdm import AISMessageGenerator
 from nmea_lib.sentences.gga import GGASentence
 from nmea_lib.sentences.rmc import RMCSentence
 from nmea_lib.types import NMEATime, NMEADate
+from nmea_lib.types.units import Distance, DistanceUnit
 from simulator.generators.vessel import EnhancedVesselGenerator
 
 
@@ -294,9 +295,9 @@ class CompleteScenarioGenerator:
         gga.set_position(nav.position.latitude, nav.position.longitude)
         gga.set_fix_quality(1)  # GPS fix
         gga.set_satellites_in_use(8)
-        gga.set_hdop(1.2)
-        gga.set_altitude(0.0)
-        gga.set_geoid_height(19.6)
+        gga.set_horizontal_dilution(1.2)
+        gga.set_altitude(Distance(0.0, DistanceUnit.METERS))
+        gga.set_geoidal_height(Distance(19.6, DistanceUnit.METERS))
         sentences.append(str(gga))
         
         # RMC sentence
