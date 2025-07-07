@@ -1,0 +1,48 @@
+Dynamic NMEA Simulator Output - Human Readable
+============================================================
+Generated: 2025-07-07 10:33:50 UTC
+Duration: 0.4 minutes
+Vessels: 1
+============================================================
+
+[10:33:54] GPS Fix - DYNAMIC EVER (MMSI: 367001234)
+  Position: 37.800094, -122.399647, SOG: 11.3kn, COG: 75.0deg
+  Sentence: $GPGGA,103354.384,3748.0056,N,12223.9788,W,1,8,1.2,0.0,M,19.6,M,,*71
+
+[10:33:54] GPS RMC - DYNAMIC EVER
+  Speed: 11.3 knots, Course: 75.0°, Time: 10:33:54
+  Sentence: $GPRMC,103354.384,A,3748.0056,N,12223.9788,W,11.3,75.0,070725,0.0,E,A*1B
+
+[10:33:59] GPS Fix - DYNAMIC EVER (MMSI: 367001234)
+  Position: 37.800187, -122.399301, SOG: 11.9kn, COG: 75.0deg
+  Sentence: $GPGGA,103359.384,3748.0112,N,12223.9581,W,1,8,1.2,0.0,M,19.6,M,,*76
+
+[10:33:59] GPS RMC - DYNAMIC EVER
+  Speed: 11.9 knots, Course: 75.0°, Time: 10:33:59
+  Sentence: $GPRMC,103359.384,A,3748.0112,N,12223.9581,W,11.9,75.0,070725,0.0,E,A*16
+
+[10:33:59] AIS Type 1 - DYNAMIC EVER (MMSI: 367001234)
+  Position Report: Lat=37.8002, Lon=-122.3993
+  SOG: 11.9kn, COG: 75.0°, HDG: 75°, ROT: 0
+  Sentence: !AIVDM,1,1,,A,15MonTP01gG?\e6EXB<2kRGf0000,0*32
+
+[10:34:04] GPS Fix - DYNAMIC EVER (MMSI: 367001234)
+  Position: 37.800237, -122.398956, SOG: 12.8kn, COG: 75.0deg
+  Sentence: $GPGGA,103404.384,3748.0142,N,12223.9374,W,1,8,1.2,0.0,M,19.6,M,,*70
+
+[10:34:04] GPS RMC - DYNAMIC EVER
+  Speed: 12.8 knots, Course: 75.0°, Time: 10:34:04
+  Sentence: $GPRMC,103404.384,A,3748.0142,N,12223.9374,W,12.8,75.0,070725,0.0,E,A*12
+
+[10:34:09] GPS Fix - DYNAMIC EVER (MMSI: 367001234)
+  Position: 37.800310, -122.398560, SOG: 12.8kn, COG: 75.0deg
+  Sentence: $GPGGA,103409.384,3748.0186,N,12223.9136,W,1,8,1.2,0.0,M,19.6,M,,*71
+
+[10:34:09] GPS RMC - DYNAMIC EVER
+  Speed: 12.8 knots, Course: 75.0°, Time: 10:34:09
+  Sentence: $GPRMC,103409.384,A,3748.0186,N,12223.9136,W,12.8,75.0,070725,0.0,E,A*13
+
+[10:34:09] AIS Type 1 - DYNAMIC EVER (MMSI: 367001234)
+  Position Report: Lat=37.8003, Lon=-122.3986
+  SOG: 12.8kn, COG: 75.0°, HDG: 75°, ROT: 0
+  Sentence: !AIVDM,1,1,,A,15MonTP020G?]30EXBNRkRFB0000,0*00

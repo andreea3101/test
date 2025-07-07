@@ -169,29 +169,43 @@ class EnhancedVesselGenerator:
     def _apply_movement_variation(self, elapsed_seconds: float, current_time: datetime):
         """Apply realistic movement variations."""
         nav = self.vessel_state.navigation_data
-        
-        # Speed variation (Gaussian noise)
-        base_speed = self.vessel_config.get('initial_speed', 0.0)
-        speed_noise = self.rng.gauss(0, self.movement_pattern.speed_variation * 0.1)
-        nav.sog = max(0, base_speed + speed_noise)
-        
-        # Course variation (periodic changes)
+        previous_cog_for_rot = nav.cog  # Store current COG before it's potentially changed
+        previous_sog = nav.sog
+
+        # Speed variation: random walk around current SOG
+        # Allow SOG to change by up to 0.5 knots per update_interval
+        sog_change = self.rng.uniform(-0.5, 0.5)
+        nav.sog = max(0, previous_sog + sog_change)
+        # Simple cap for realism, can be configurable later
+        nav.sog = min(nav.sog, self.vessel_config.get('max_speed', 25.0))
+
+        # Course variation: random walk around current COG
+        # Allow COG to change by up to 5 degrees per update_interval
+        # This periodic change can be removed or adapted if movement patterns handle course changes
         if current_time - self.last_course_change > self.course_change_interval:
-            base_course = self.vessel_config.get('initial_heading', 0.0)
-            course_noise = self.rng.gauss(0, self.movement_pattern.course_variation)
-            nav.cog = (base_course + course_noise) % 360.0
-            nav.heading = int(nav.cog) % 360
+            course_change_amount = self.rng.uniform(-10.0, 10.0) # degrees
+            nav.cog = (nav.cog + course_change_amount) % 360.0
             self.last_course_change = current_time
         
-        # Rate of turn (based on course changes)
-        if len(self.position_history) > 1:
-            prev_time, prev_pos = self.position_history[-1]
-            time_diff = (current_time - prev_time).total_seconds()
-            if time_diff > 0:
-                # Calculate rate of turn based on course change
-                course_diff = nav.cog - nav.cog  # This would need previous course
-                nav.rot = min(127, max(-127, int(course_diff / time_diff)))
+        nav.heading = int(nav.cog) % 360
         
+        # Rate of turn (based on course changes)
+        # elapsed_seconds is the time delta for this update_vessel_state call
+        if elapsed_seconds > 0:
+            course_diff = nav.cog - previous_cog_for_rot
+
+            # Handle angle wrapping for course_diff
+            if course_diff > 180:
+                course_diff -= 360
+            elif course_diff < -180:
+                course_diff += 360
+
+            # ROT sensor value is typically in degrees per minute
+            rot_sensor_deg_per_min = (course_diff / elapsed_seconds) * 60.0
+            nav.rot = int(round(rot_sensor_deg_per_min))
+        else:
+            nav.rot = 0 # No time elapsed, no turn
+
         # Update navigation status based on speed
         if nav.sog < 0.1:
             nav.nav_status = NavigationStatus.AT_ANCHOR
